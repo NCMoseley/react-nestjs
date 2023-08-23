@@ -77,6 +77,12 @@ export default function SearchAppBar({isLoggedIn}) {
             })
         })
     }
+
+    const signOut = () => {
+        localStorage.removeItem("token");
+        window.location.reload();
+    }
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -87,7 +93,7 @@ export default function SearchAppBar({isLoggedIn}) {
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
                     >
-                        Streamly
+                        YouChube
                     </Typography>
                     {isLoggedIn &&
                         <>
@@ -154,8 +160,8 @@ export default function SearchAppBar({isLoggedIn}) {
                                         </Typography>
                                     </Box>
                                 </Modal>
+                                <Button variant="contained" color="secondary" onClick={signOut}>Sign out</Button>
                             </div>
-
                         </>
                     }
                 </Toolbar>

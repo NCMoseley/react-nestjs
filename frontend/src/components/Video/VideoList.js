@@ -15,20 +15,19 @@ export default function VideoList({ setLoggedIn }) {
 
     React.useEffect(() => {
         async function fetchData() {
-            try {
-                const token = localStorage.getItem('token');
-                const {data} = await axios.get('http://127.0.0.1:3002/api/v1/video', {
-                    headers: ({
-                        Authorization: 'Bearer ' + token
-                    })
-                });
-                setVideos(data)
-
-            } catch {
-                setLoggedIn(false);
-                navigate('/')
+            const token = localStorage.getItem('token');
+            if (!token) {
+                navigate('/');
+                return;
             }
+            const {data} = await axios.get('http://127.0.0.1:3002/api/v1/video', {
+                headers: ({
+                    Authorization: 'Bearer ' + token
+                })
+            });
+            setVideos(data)
         }
+
         fetchData();
     }, [navigate, setLoggedIn]);
 
