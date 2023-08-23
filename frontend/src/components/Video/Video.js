@@ -18,7 +18,7 @@ export default function VideoList({ setLoggedIn }) {
         async function fetchData() {
             try {
                 const token = localStorage.getItem('token');
-                const {data} = await axios.get(`http://127.0.0.1:3002/api/v1/video?id=${videoId}`, {
+                const {data} = await axios.get(`http://localhost:3002/api/v1/video?id=${videoId}`, {
                     headers: ({
                         Authorization: 'Bearer ' + token
                     })

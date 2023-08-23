@@ -49,7 +49,7 @@ export default function VideoList({ setLoggedIn }) {
                                     <CardMedia
                                         component="img"
                                         sx={{ width: 160, display: { xs: 'none', sm: 'block' } }}
-                                        image={`http://127.0.0.1:3002/${video.coverImage}`}
+                                        image={`http://localhost:3002/${video.coverImage}`}
                                         alt="alt"
                                     />
                                 </Card>
